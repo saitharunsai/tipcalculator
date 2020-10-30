@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>Tip Calculator</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		body
+		{
+			/*background-color: pink;*/
+			 background-image: url(https://cdn4.iconfinder.com/data/icons/restaurant-worker-job/421/restaurant-worker-job-012-512.png);
+			  background-repeat: no-repeat;
+ 			  background-attachment: fixed;
+  			  background-size: 90% 90%;
+  			 /*background-size: cover;*/
+			/*background-position: center;*/
+		}
+		h1
+		{
+			/*background-color: blue;
+			text-align: center;
+			color: white;*/
+
+		}
+	</style>
+<script type="text/javascript">
+		function Calculatedata()
+		{
+		var Billamount1=document.getElementById("forbillamount").value;
+		var numberofpeople=document.getElementById("forbillshare").value;
+		document.getElementById("fortipamount").value=TipCal(Number(Billamount1),Number(numberofpeople));
+
+		}
+		function TipCal(a,b)
+		{
+			var amoutvalue=0;
+
+			var servicedropdown=document.getElementById("forservice").value;
+			if(servicedropdown==="Excellent-20")
+				amountvalue=a*0.2;
+			else if (servicedropdown==="Better-15")
+				amountvalue=a*0.15;
+			else if (servicedropdown==="Good-10")
+				amountvalue=a*0.1;
+			else if (servicedropdown==="Good-5")
+				amountvalue=a*0.05;
+			else
+				amountvalue=0;
+			amountvalue=amountvalue/b;
+			return amountvalue;
+		}
+	
+	</script>
+</head>
+<body>
+	<div class="container-fluid" style="max-width: 600px; " >
+		<br>
+		<br>
+		<div class="container-fluid" style="background-color:rgba(100,0,0,0.5); margin-top: 50px; border-radius: 5px; box-shadow: 1 1 7px black;">
+		<!-- <div class="d-flex justify-content-center" >TIP CALCULATOR</div> -->
+			<h1 style="color:black; text-align: center; width: 600px">TIP CALCULATOR</h1>
+			
+		 </div>
+		 
+		 <div class="container-fluid" style="background-color:rgba(50,50,50,0.9);">
+		    <div class="form-group" style="margin-top: 5px;">
+		      
+		      <label for="forbill" style="color:red; font-size: 20px;"><b>Enter bill amount: </b> Rs.</label>
+		      <input type="number"  value="1000" id="forbillamount" placeholder="200">
+		    </div>
+		  	<div class="form-group">
+		  	 <label for="service" style="color:red; font-size: 20px;" ><b>How was the service?:  </b></label>
+		      <select id="forservice" name="Service">
+		      	<option value="Excellent-20">Excellent-20%</option>
+		      	<option value="Better-15">Better-15%</option>
+		      	<option value="Good-10">Good-10%</option>
+		      	<option value="Good-5">Not so Good-5%</option>
+		      </select>
+		  	</div>
+		  	
+		  	 <div class="form-group">
+		      <label for="forbill" style="color:red; font-size: 20px;"><b>How many people are sharing bill? </b></label>
+		      <input type="number" value="2" id="forbillshare" placeholder="20">
+		    </div>
+			 <div align="center">
+		  			<button type="submit" onclick="Calculatedata()" class="btn btn-primary" >Calculate</button>
+			  		<br>
+			    	 <label for="output" style="color:red; font-size: 20px; text-align: center;"><b>Tip Amount </b></label>
+			    	 <br>
+		  			<input id="fortipamount" style="color:red;	font-size: 20px;" type="text" name="output">
+		  		</div>
+			 
+	    </div>
+	    
+	</div>	
+
+</body>
+	
+</html>
